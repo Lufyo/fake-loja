@@ -1,0 +1,97 @@
+/* Detalhes: foto grande sobre a cor da categoria, preço em etiqueta, texto com boa leitura. */
+
+.centro {
+  display: flex;
+  justify-content: center;
+  padding: 48px 16px;
+  text-align: center;
+}
+
+.detalhe {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 16px 16px 32px;
+}
+
+.tile {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  max-height: 360px;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 24px;
+  background: var(--tint);
+}
+
+/* a foto fica solta dentro da caixa, para o tamanho natural dela não esticar a página */
+.foto {
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.categoria {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--tint);
+  color: var(--tinta);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+h2 {
+  margin: 10px 0 16px;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+.precos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+/* a etiqueta (estilo global .preco) fica maior aqui; o furo imita o fundo da página */
+.preco {
+  --ponta: 16px;
+  --furo: var(--papel);
+  padding: 6px 14px 6px 28px;
+  font-size: 1.5rem;
+}
+
+.precos small {
+  color: rgba(26, 31, 61, 0.62);
+}
+
+.avaliacoes {
+  color: rgba(26, 31, 61, 0.62);
+  font-weight: normal;
+}
+
+.descricao {
+  max-width: 62ch;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+ion-button {
+  --border-radius: 14px;
+  height: 52px;
+  margin: 16px 0 0;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}

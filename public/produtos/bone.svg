@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Boné de aba curva">
+  <ellipse cx="120" cy="204" rx="90" ry="9" fill="#1A1F3D" opacity=".12"/>
+  <g transform="translate(-18,8)">
+    <path d="M50 152 C50 90 88 58 124 58 C164 58 194 96 194 152 Z" fill="#2B45E8"/>
+    <path d="M124 60 C108 92 106 124 110 152" fill="none" stroke="#1F33C0" stroke-width="3"/>
+    <path d="M124 60 C146 90 156 122 156 152" fill="none" stroke="#1F33C0" stroke-width="3"/>
+    <circle cx="124" cy="58" r="8" fill="#1F33C0"/>
+    <rect x="46" y="146" width="150" height="16" rx="8" fill="#1F33C0"/>
+    <path d="M150 150 C186 142 218 148 230 170 C192 182 156 176 138 162 Z" fill="#1A1F3D"/>
+    <circle cx="172" cy="112" r="11" fill="#FFD84D"/>
+    <circle cx="172" cy="112" r="4" fill="#1A1F3D"/>
+  </g>
+</svg>

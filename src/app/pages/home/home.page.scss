@@ -1,0 +1,172 @@
+/* Home: fundo cobalto, marca grande e um mosaico com produtos. */
+
+ion-toolbar {
+  --background: var(--cobalto);
+  --color: #ffffff;
+}
+
+.pagina {
+  --background: var(--cobalto);
+}
+
+.hero {
+  box-sizing: border-box;
+  min-height: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 20px 22px 32px;
+  display: grid;
+  align-content: center;
+  gap: 24px;
+  color: #ffffff;
+}
+
+/* ---------- Mosaico ---------- */
+.mosaico {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.quadro {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 22px;
+  background: var(--tint);
+  animation: entrar 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* segunda coluna um pouco mais baixa, para o mosaico não ficar uma grade rígida */
+.quadro:nth-child(even) {
+  margin-top: 18px;
+}
+
+.quadro:nth-child(2) {
+  animation-delay: 90ms;
+}
+.quadro:nth-child(3) {
+  animation-delay: 180ms;
+}
+.quadro:nth-child(4) {
+  animation-delay: 270ms;
+}
+
+.quadro img {
+  position: absolute;
+  inset: 9%;
+  width: 82%;
+  height: 82%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+/* único movimento da página: os quadros entram um depois do outro */
+@keyframes entrar {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quadro {
+    animation: none;
+  }
+}
+
+/* ---------- Texto ---------- */
+h1 {
+  margin: 0;
+  font-size: clamp(3.4rem, 17vw, 6.4rem);
+  font-weight: 800;
+  font-stretch: 75%;
+  line-height: 0.88;
+  letter-spacing: -0.015em;
+}
+
+.chamada {
+  max-width: 26ch;
+  margin: 16px 0 0;
+  font-size: 1.1rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.contador {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 18px 0 0;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--etiqueta);
+  color: var(--tinta);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.contador ion-icon {
+  color: var(--ion-color-danger);
+}
+
+.botoes {
+  max-width: 320px;
+  margin-top: 24px;
+}
+
+ion-button {
+  --background: var(--etiqueta);
+  --background-hover: #ffe27a;
+  --background-activated: #f5c92c;
+  --color: var(--tinta);
+  --border-radius: 14px;
+  --box-shadow: none;
+  height: 54px;
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* segundo botão (Ver favoritos): só com contorno */
+ion-button[fill='outline'] {
+  --background: transparent;
+  --background-hover: rgba(255, 255, 255, 0.12);
+  --background-activated: rgba(255, 255, 255, 0.2);
+  --color: #ffffff;
+  --border-color: #ffffff;
+  --border-style: solid;
+  --border-width: 2px;
+}
+
+.botoes ion-button + ion-button {
+  margin-top: 10px;
+}
+
+/* ---------- Telas largas: texto à esquerda, mosaico à direita ---------- */
+@media (min-width: 820px) {
+  .hero {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 56px;
+  }
+
+  .texto {
+    order: 1;
+  }
+
+  .mosaico {
+    order: 2;
+    justify-self: end;
+    max-width: 380px;
+  }
+}

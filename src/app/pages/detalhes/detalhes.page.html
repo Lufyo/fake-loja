@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/lista" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalhes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="pagina">
+  <!-- Bloco @if / @else if: carregando, erro ou produto carregado -->
+  @if (carregando()) {
+    <div class="centro">
+      <ion-spinner name="crescent"></ion-spinner>
+    </div>
+  } @else if (erro()) {
+    <div class="centro">
+      <p>Produto não encontrado.</p>
+    </div>
+  } @else if (produto(); as p) {
+    <!-- data-cat = cor suave da categoria (veja styles.scss) -->
+    <div class="detalhe" [attr.data-cat]="p.category">
+      <div class="tile">
+        <img [src]="p.image" [alt]="p.title" class="foto" />
+      </div>
+
+      <!-- Pipe built-in: uppercase -->
+      <span class="categoria">{{ p.category | uppercase }}</span>
+      <h2>{{ p.title }}</h2>
+
+      <div class="precos">
+        <!-- Pipe personalizada: preco | Pipe built-in: currency (valor original em dólar) -->
+        <strong class="preco">{{ p.price | preco }}</strong>
+        <small>({{ p.price | currency: 'USD' }})</small>
+      </div>
+
+      <!-- Diretiva personalizada: appAvaliacaoCor | Pipe built-in: number -->
+      <p [appAvaliacaoCor]="p.rating.rate">
+        <ion-icon name="star"></ion-icon>
+        {{ p.rating.rate | number: '1.1-1' }}
+        <span class="avaliacoes">({{ p.rating.count }} avaliações)</span>
+      </p>
+
+      <p class="descricao">{{ p.description }}</p>
+
+      <ion-button expand="block" color="danger" (click)="alternarFavorito(p.id)">
+        <ion-icon slot="start" [name]="favoritos.ehFavorito(p.id) ? 'heart' : 'heart-outline'"></ion-icon>
+        <!-- Bloco @if: troca o texto do botão -->
+        @if (favoritos.ehFavorito(p.id)) {
+          Remover dos favoritos
+        } @else {
+          Adicionar aos favoritos
+        }
+      </ion-button>
+    </div>
+  }
+</ion-content>

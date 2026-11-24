@@ -1,0 +1,170 @@
+/* Lista: busca e categorias em "pílulas", produtos em cards com a foto sobre a cor da categoria. */
+
+/* atalho para os favoritos, no canto da barra de título */
+ion-buttons ion-button {
+  --color: var(--tinta);
+  --border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: none;
+}
+
+ion-buttons ion-icon {
+  color: var(--ion-color-danger);
+}
+
+ion-searchbar {
+  --background: var(--papel);
+  --border-radius: 999px;
+  --box-shadow: none;
+  --color: var(--tinta);
+  --placeholder-color: rgba(26, 31, 61, 0.6);
+  --placeholder-opacity: 1;
+  --icon-color: var(--cobalto);
+  padding: 4px 12px 8px;
+}
+
+ion-segment {
+  --background: transparent;
+  min-height: 0;
+  padding: 0 8px 12px;
+}
+
+ion-segment-button {
+  --background: var(--papel);
+  --background-checked: var(--cobalto);
+  --color: var(--tinta);
+  --color-checked: #ffffff;
+  --indicator-color: transparent;
+  --border-radius: 999px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  min-width: 0;
+  min-height: 38px;
+  margin: 0 4px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.centro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px;
+  text-align: center;
+}
+
+/* ---------- Grade de produtos ---------- */
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+  gap: 14px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 14px;
+}
+
+ion-card {
+  --background: #ffffff;
+  position: relative;
+  margin: 0;
+  padding: 8px 8px 10px;
+  border-radius: 18px;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+/* fundo na cor da categoria; a foto (fundo branco) se funde a ele */
+.tile {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 12px;
+  background: var(--tint);
+}
+
+/* a foto fica solta dentro da caixa, para o tamanho natural dela não esticar o card */
+.foto {
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+ion-card-header {
+  padding: 10px 4px 0;
+}
+
+ion-card-subtitle {
+  margin: 0 0 2px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  color: rgba(26, 31, 61, 0.62);
+}
+
+/* no máximo 2 linhas (com reticências), assim todos os cards ficam com a mesma altura */
+.titulo {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  min-height: 2.5em;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--tinta);
+}
+
+ion-card-content {
+  padding: 8px 4px 0;
+}
+
+/* preço em cima, nota embaixo: igual em todos os cards, qualquer que seja o tamanho do preço */
+.linha {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.linha span {
+  font-size: 0.85rem;
+}
+
+/* coração de favorito: botão redondo no canto da foto (o card é o ponto de referência) */
+.linha ion-button {
+  --padding-start: 0;
+  --padding-end: 0;
+  --border-radius: 50%;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1;
+  width: 34px;
+  height: 34px;
+  margin: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.linha ion-button ion-icon {
+  font-size: 20px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ion-card {
+    transition: none !important;
+  }
+}

@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Início</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="pagina">
+  <section class="hero">
+    <!-- Mosaico só decorativo: alguns produtos da loja, cada um na cor da sua categoria -->
+    <div class="mosaico" aria-hidden="true">
+      <div class="quadro" data-cat="eletrônicos"><img src="produtos/fone.svg" alt="" /></div>
+      <div class="quadro" data-cat="casa"><img src="produtos/caneca.svg" alt="" /></div>
+      <div class="quadro" data-cat="roupas masculinas"><img src="produtos/bone.svg" alt="" /></div>
+      <div class="quadro" data-cat="joias"><img src="produtos/relogio.svg" alt="" /></div>
+    </div>
+
+    <div class="texto">
+      <!-- Pipe built-in: uppercase -->
+      <h1>{{ nomeLoja | uppercase }}</h1>
+      <p class="chamada">Confira os produtos da nossa loja e salve seus favoritos.</p>
+
+      <!-- Bloco @if: só aparece se existir algum favorito -->
+      @if (favoritos.total() > 0) {
+        <p class="contador">
+          <ion-icon name="heart"></ion-icon>
+          Você tem {{ favoritos.total() }} favorito(s)
+        </p>
+      }
+
+      <div class="botoes">
+        <ion-button expand="block" [routerLink]="['/lista']">
+          <ion-icon slot="start" name="storefront"></ion-icon>
+          Ver produtos
+        </ion-button>
+        <ion-button expand="block" fill="outline" [routerLink]="['/favoritos']">
+          <ion-icon slot="start" name="heart"></ion-icon>
+          Ver favoritos
+        </ion-button>
+      </div>
+    </div>
+  </section>
+</ion-content>

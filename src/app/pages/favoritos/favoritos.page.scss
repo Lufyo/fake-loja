@@ -1,0 +1,163 @@
+/* Favoritos: os mesmos cards da Lista, só com os produtos marcados. */
+
+.centro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px;
+  text-align: center;
+}
+
+/* ---------- Nenhum favorito ---------- */
+.vazio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 56px 24px;
+  text-align: center;
+}
+
+.vazio-icone {
+  display: grid;
+  place-items: center;
+  width: 88px;
+  height: 88px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  background: #ffdce5;
+  color: var(--ion-color-danger);
+  font-size: 40px;
+}
+
+.vazio h2 {
+  margin: 0 0 8px;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.vazio p {
+  margin: 0 0 24px;
+  line-height: 1.5;
+  color: rgba(26, 31, 61, 0.7);
+}
+
+.vazio ion-button {
+  --border-radius: 14px;
+  height: 48px;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* ---------- Grade de produtos (igual à da Lista) ---------- */
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+  gap: 14px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 14px;
+}
+
+ion-card {
+  --background: #ffffff;
+  position: relative;
+  margin: 0;
+  padding: 8px 8px 10px;
+  border-radius: 18px;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.tile {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 12px;
+  background: var(--tint);
+}
+
+.foto {
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+ion-card-header {
+  padding: 10px 4px 0;
+}
+
+ion-card-subtitle {
+  margin: 0 0 2px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  color: rgba(26, 31, 61, 0.62);
+}
+
+.titulo {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  min-height: 2.5em;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--tinta);
+}
+
+ion-card-content {
+  padding: 8px 4px 0;
+}
+
+.linha {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.linha span {
+  font-size: 0.85rem;
+}
+
+/* coração: botão redondo no canto da foto; aqui ele remove o produto dos favoritos */
+.linha ion-button {
+  --padding-start: 0;
+  --padding-end: 0;
+  --border-radius: 50%;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1;
+  width: 34px;
+  height: 34px;
+  margin: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.linha ion-button ion-icon {
+  font-size: 20px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ion-card {
+    transition: none !important;
+  }
+}

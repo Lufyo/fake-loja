@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Favoritos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="pagina">
+  <!-- Bloco @if / @else if / @else: carregando, erro, nenhum favorito ou lista -->
+  @if (carregando()) {
+    <div class="centro">
+      <ion-spinner name="crescent"></ion-spinner>
+      <p>Carregando favoritos...</p>
+    </div>
+  } @else if (erro()) {
+    <div class="centro">
+      <p>Não foi possível carregar os favoritos.</p>
+      <ion-button (click)="carregar()">Tentar de novo</ion-button>
+    </div>
+  } @else if (salvos().length === 0) {
+    <div class="vazio">
+      <div class="vazio-icone">
+        <ion-icon name="heart-outline"></ion-icon>
+      </div>
+      <h2>Nenhum favorito ainda</h2>
+      <p>Toque no coração de um produto para guardá-lo aqui.</p>
+      <ion-button [routerLink]="['/lista']">
+        <ion-icon slot="start" name="storefront"></ion-icon>
+        Ver produtos
+      </ion-button>
+    </div>
+  } @else {
+    <div class="grade">
+      <!-- Bloco @for: um card para cada produto favorito | appDestaque = diretiva personalizada 1 -->
+      @for (p of salvos(); track p.id) {
+        <!-- data-cat = cor suave da categoria (veja styles.scss) -->
+        <ion-card appDestaque [routerLink]="['/detalhes', p.id]" [attr.data-cat]="p.category">
+          <div class="tile">
+            <img [src]="p.image" [alt]="p.title" class="foto" />
+          </div>
+          <ion-card-header>
+            <!-- Pipe built-in: titlecase | Pipe personalizada: resumo -->
+            <ion-card-subtitle>{{ p.category | titlecase }}</ion-card-subtitle>
+            <ion-card-title class="titulo">{{ p.title | resumo: 60 }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="linha">
+              <!-- Pipe personalizada: preco -->
+              <strong class="preco">{{ p.price | preco }}</strong>
+              <!-- appAvaliacaoCor = diretiva personalizada 2 | Pipe built-in: number -->
+              <span [appAvaliacaoCor]="p.rating.rate">
+                <ion-icon name="star"></ion-icon> {{ p.rating.rate | number: '1.1-1' }}
+              </span>
+              <ion-button
+                fill="clear"
+                color="danger"
+                aria-label="Remover dos favoritos"
+                (click)="alternarFavorito($event, p.id)"
+              >
+                <ion-icon slot="icon-only" name="heart"></ion-icon>
+              </ion-button>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      }
+    </div>
+  }
+</ion-content>

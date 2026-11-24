@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Fone de ouvido sem fio">
+  <ellipse cx="120" cy="212" rx="68" ry="8" fill="#1A1F3D" opacity=".12"/>
+  <g transform="translate(0,-6)">
+    <path d="M56 130 C56 52 184 52 184 130" fill="none" stroke="#1A1F3D" stroke-width="14" stroke-linecap="round"/>
+    <rect x="92" y="79" width="56" height="10" rx="5" fill="#2B45E8"/>
+    <rect x="36" y="116" width="40" height="80" rx="18" fill="#2B45E8"/>
+    <rect x="68" y="126" width="16" height="60" rx="8" fill="#1A1F3D"/>
+    <rect x="164" y="116" width="40" height="80" rx="18" fill="#2B45E8"/>
+    <rect x="156" y="126" width="16" height="60" rx="8" fill="#1A1F3D"/>
+    <circle cx="56" cy="156" r="6" fill="#FFD84D"/>
+    <circle cx="184" cy="156" r="6" fill="#FFD84D"/>
+  </g>
+</svg>

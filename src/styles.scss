@@ -1,0 +1,109 @@
+/* Estilos globais. O CSS base do Ionic é carregado pelo angular.json. */
+
+/* ---------- Paleta e fonte ---------- */
+:root {
+  --cobalto: #2b45e8;
+  --cobalto-escuro: #1f33c0;
+  --tinta: #1a1f3d;
+  --papel: #eef0f8;
+  --etiqueta: #ffd84d;
+
+  /* a fonte é carregada no index.html */
+  --ion-font-family: 'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* cores do Ionic: primary = cobalto, danger = rosa do coração de favorito */
+  --ion-text-color: #1a1f3d;
+  --ion-text-color-rgb: 26, 31, 61;
+
+  --ion-color-primary: #2b45e8;
+  --ion-color-primary-rgb: 43, 69, 232;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #263dcc;
+  --ion-color-primary-tint: #4058ea;
+
+  --ion-color-danger: #e8365d;
+  --ion-color-danger-rgb: 232, 54, 93;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #cc3052;
+  --ion-color-danger-tint: #ea4a6d;
+}
+
+/* ---------- Estrutura comum às páginas ---------- */
+ion-toolbar {
+  --background: #ffffff;
+  --color: var(--tinta);
+  --border-width: 0;
+}
+
+ion-title {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+ion-back-button {
+  --color: var(--cobalto);
+}
+
+ion-spinner {
+  color: var(--cobalto);
+}
+
+.pagina {
+  --background: var(--papel);
+}
+
+/* ---------- Cor de cada categoria ----------
+   Cada produto fica sobre um fundo suave da cor da sua categoria. As fotos têm fundo branco e,
+   com mix-blend-mode: multiply, o branco some e a foto "assenta" na cor.
+   Basta colocar data-cat="<categoria>" no elemento: a cor chega pela variável --tint. */
+[data-cat] {
+  --tint: #e3e6f4;
+}
+[data-cat='eletrônicos'] {
+  --tint: #d8e3ff;
+}
+[data-cat='joias'] {
+  --tint: #fff1bf;
+}
+[data-cat='roupas masculinas'] {
+  --tint: #d9f2e3;
+}
+[data-cat='roupas femininas'] {
+  --tint: #ffdce5;
+}
+[data-cat='casa'] {
+  --tint: #ffe3cf;
+}
+
+/* ---------- Etiqueta de preço ----------
+   Todo <strong class="preco"> vira uma etiqueta amarela com furo.
+   --ponta = tamanho da ponta; --furo = cor do fundo atrás da etiqueta (para o furo parecer vazado). */
+.preco {
+  --ponta: 12px;
+  --furo: #ffffff;
+  position: relative;
+  display: inline-block;
+  padding: 4px 10px 4px 22px;
+  background: var(--etiqueta);
+  color: var(--tinta);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+  white-space: nowrap;
+  border-radius: 0 8px 8px 0;
+  clip-path: polygon(var(--ponta) 0, 100% 0, 100% 100%, var(--ponta) 100%, 0 50%);
+}
+
+.preco::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: calc(var(--ponta) - 1px);
+  width: 5px;
+  height: 5px;
+  margin-top: -2.5px;
+  border-radius: 50%;
+  background: var(--furo);
+}

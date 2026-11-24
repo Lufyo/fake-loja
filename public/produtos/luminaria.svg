@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Luminária de mesa articulada">
+  <defs>
+    <linearGradient id="luz" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFC300" stop-opacity=".75"/>
+      <stop offset="1" stop-color="#FFC300" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="130" cy="212" rx="64" ry="7" fill="#1A1F3D" opacity=".12"/>
+  <g transform="translate(14,0)">
+    <g transform="translate(96,60) rotate(28)">
+      <polygon points="-26,12 26,12 40,112 -40,112" fill="url(#luz)"/>
+    </g>
+    <rect x="68" y="196" width="104" height="16" rx="8" fill="#1A1F3D"/>
+    <g fill="none" stroke="#1A1F3D" stroke-width="8" stroke-linecap="round">
+      <path d="M116 196 L150 108"/>
+      <path d="M150 108 L100 52"/>
+    </g>
+    <circle cx="150" cy="108" r="10" fill="#FFD84D"/>
+    <circle cx="150" cy="108" r="3.5" fill="#1A1F3D"/>
+    <g transform="translate(96,60) rotate(28)">
+      <path d="M-32 12 C-32 -22 32 -22 32 12 Z" fill="#2B45E8"/>
+      <rect x="-32" y="8" width="64" height="8" rx="4" fill="#1F33C0"/>
+    </g>
+    <circle cx="100" cy="52" r="8" fill="#FFD84D"/>
+    <circle cx="100" cy="52" r="3" fill="#1A1F3D"/>
+  </g>
+</svg>

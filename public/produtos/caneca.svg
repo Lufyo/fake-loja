@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Caneca de cerâmica">
+  <ellipse cx="120" cy="218" rx="64" ry="8" fill="#1A1F3D" opacity=".12"/>
+  <g fill="none" stroke="#1A1F3D" stroke-width="5" stroke-linecap="round" opacity=".35">
+    <path d="M104 74 C98 64 110 58 104 46"/>
+    <path d="M122 76 C116 64 128 56 122 42"/>
+    <path d="M140 74 C134 64 146 58 140 46"/>
+  </g>
+  <path d="M172 112 C208 106 212 164 170 160" fill="none" stroke="#D93A3A" stroke-width="15" stroke-linecap="round"/>
+  <path d="M68 94 H172 V164 C172 194 150 212 120 212 C90 212 68 194 68 164 Z" fill="#D93A3A"/>
+  <ellipse cx="120" cy="94" rx="52" ry="11" fill="#A92A2A"/>
+  <ellipse cx="120" cy="95" rx="45" ry="7.5" fill="#5A3A2E"/>
+  <g fill="#FFD84D">
+    <circle cx="94" cy="128" r="5"/>
+    <circle cx="120" cy="146" r="5"/>
+    <circle cx="146" cy="128" r="5"/>
+    <circle cx="100" cy="170" r="5"/>
+    <circle cx="140" cy="172" r="5"/>
+  </g>
+</svg>
